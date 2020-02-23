@@ -3,7 +3,7 @@ export interface Teams {
   filters: any;
   competition: any;
   season: any;
-  teams: Team[]
+  teams: Team[];
 }
 
 export interface Team {
@@ -18,7 +18,7 @@ export interface Team {
   website: string;
   email: string;
   founded: number;
-  clubColors:  string;
+  clubColors: string;
   venue: string;
-  lastUpdated:  string;
+  lastUpdated: string;
 }

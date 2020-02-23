@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { Teams } from './shared/models/teams.interface';
@@ -11,17 +11,17 @@ export class HttpService {
     headers: new HttpHeaders({
       'X-Auth-Token': this.apiKey
     })
-  }
-  
+  };
+
   constructor(private http: HttpClient) {}
 
   getAllCompetitions() {
     return this.http.get(`${this.baseUrl}competitions`, this.httpOptions);
-  };
+  }
 
   getLeague(leagueNr: number) {
     return this.http.get(`${this.baseUrl}competitions/${leagueNr}`, this.httpOptions);
-  };
+  }
 
   getLeagueTable(leagueNr: number) {
     return this.http.get(`${this.baseUrl}competitions/${leagueNr}/leagueTable`, this.httpOptions);
@@ -42,9 +42,15 @@ export class HttpService {
             return 1;
           }
           return 0;
-        })
+        });
       }),
       tap(console.log)
-    )
+    );
+  }
+
+  getTodayMatches() {
+    return this.http.get(`${this.baseUrl}/matches`, this.httpOptions).pipe(
+      tap(console.log)
+    );
   }
 }

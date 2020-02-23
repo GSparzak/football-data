@@ -1,35 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { SearchParentComponent } from './containers/search/search-parent/search-parent.component';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
 import { HttpService } from './http.service';
-import { TeamComponent } from './components/team/team.component';
-import { MatchComponent } from './components/match/match.component';
-import { LeagueComponent } from './components/league/league.component';
-import { StandingsComponent } from './components/standings/standings.component';
-import { FixturesComponent } from './components/fixtures/fixtures.component';
-import { HistoryComponent } from './components/history/history.component';
-import { HeaderComponent } from './components/layout/header/header.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AuthModule } from './auth/auth.module';
+import { CurrentMatchesComponent } from './containers/current-matches/current-matches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamComponent,
-    MatchComponent,
-    LeagueComponent,
-    StandingsComponent,
-    FixturesComponent,
-    HistoryComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CurrentMatchesComponent,
+    SearchParentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10,
+    })
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

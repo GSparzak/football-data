@@ -1,0 +1,26 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background-color: #222;
+  text-align: center;
+  color: #ddd;
+  border-bottom: 2px solid #b22;
+
+  .material-icons {
+    font-size: 20px;
+  }
+
+  h1 {
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 24px;
+    font-family: 'Unica One', cursive;
+    text-transform: uppercase;
+  }
+}

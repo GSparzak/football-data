@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #222;
+  border-top: 1px solid #b22;
+
+  a {
+    width: 25%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+    text-decoration: none;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid #444;
+    }
+  }
+}
